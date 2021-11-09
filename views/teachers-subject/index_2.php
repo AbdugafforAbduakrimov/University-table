@@ -25,7 +25,7 @@ use yii\helpers\Html;
                 'options' => [
                     'required' => true,
                     'id' => 'subjects',
-                    'placeholder' => 'Fam tanlang'
+                    'placeholder' => 'Fan tanlang'
                 ],
                 'pluginOptions' => [],
             ]) ?>

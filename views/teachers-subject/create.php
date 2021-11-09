@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\TeachersSubject */
 
-$this->title = 'Create Teachers Subject';
+$this->title = 'Dars biriktirish';
 $this->params['breadcrumbs'][] = ['label' => 'Teachers Subjects', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

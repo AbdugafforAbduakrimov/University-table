@@ -17,9 +17,9 @@ use Yii;
  */
 class TeachersSubject extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+    // public $pair;
+    // public $lesson_date;
+
     public static function tableName()
     {
         return 'teachers_subject';
@@ -34,11 +34,10 @@ class TeachersSubject extends \yii\db\ActiveRecord
             [['teachers_id', 'subjects_id', 'rooms_id', 'group_id', 'pair'], 'integer'],
             [['lesson_date'], 'safe'],
         ];
+
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function attributeLabels()
     {
         return [
@@ -51,6 +50,7 @@ class TeachersSubject extends \yii\db\ActiveRecord
             'lesson_date' => 'Hafta kuni',
         ];
     }
+
 
     public function getTeacher()
     {

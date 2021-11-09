@@ -354,8 +354,21 @@ class TeachersSubjectController extends Controller
         $model = new TeachersSubject();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $sql = "SELECT * FROM teachers_subject WHERE pair = ".$model->pair." AND lesson_date = ".$model->lesson_date." AND group_id = ".$model->group_id;
+                // echo $sql;
+                // die();
+                $query = Yii::$app->db->createCommand($sql)->queryAll();
+                if(!(isset($query) && !empty($query))){
+                    $model->save();
+                    return $this->redirect(['index', 'id' => $model->id]);
+                }
+                $message = "Haftaning bu kunida juftlikda dars mavjud!";
+                $model->addError('lesson_date', $message);
+                return $this->render('create', [
+                    'model' => $model
+                ]);
+
             }
         } else {
             $model->loadDefaultValues();

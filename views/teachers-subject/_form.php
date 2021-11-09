@@ -7,6 +7,7 @@ use app\models\Teachers;
 use app\models\Groups;
 use app\models\Rooms;
 use app\models\Subjects;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TeachersSubject */
@@ -54,9 +55,18 @@ use app\models\Subjects;
             '6' => 'Shanba'
             // '7' => 'Yakshanba',
         ];
-        echo Html::activeDropDownList($model, 'lesson_date', $a, ['class' => 'form-control'])."<br>" ;
+
+        echo $form->field($model, 'lesson_date')->widget(Select2::classname(), [
+            'data' => $a,
+            'language' => 'en',
+            'options' => ['placeholder' => 'Select a state ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
     ?>
 
+   
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
